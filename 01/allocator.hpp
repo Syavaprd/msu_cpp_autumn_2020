@@ -4,12 +4,12 @@
 
 class Allocator {
 public:
-    void makeAllocator(size_t capacity_) {
-        if (begin != NULL) {
+    void makeAllocator(size_t volume) {
+        if (begin != nullptr) {
             delete [] begin;
             offset = 0;
         }
-        capacity = capacity_;
+        capacity = volume;
         begin = new char[capacity];
         return ;
     }
@@ -20,7 +20,7 @@ public:
 
     char* alloc(size_t size) {
         if (size > capacity - offset) {
-            return NULL;
+            return nullptr;
         }
         char *new_offset = begin + offset;
         offset += size;
@@ -34,5 +34,5 @@ public:
 
 private:
     size_t capacity = 0, offset = 0;
-    char *begin = NULL;
+    char *begin = nullptr;
 };
