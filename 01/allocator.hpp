@@ -5,11 +5,9 @@
 class Allocator {
 public:
     void makeAllocator(size_t capacity_) {
-        capacity = capacity_;
         if (begin != NULL) {
             delete [] begin;
             offset = 0;
-            capacity = 0;
         }
         capacity = capacity_;
         begin = new char[capacity];
